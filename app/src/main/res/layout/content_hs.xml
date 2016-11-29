@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:outlineProvider="bounds"
+    app:cardElevation="20dp"
+    android:padding="5dp"
+    android:alpha="0.8">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#ffffff">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/cimage"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:elevation="23dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/ctext"
+            android:layout_below="@+id/cimage"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:background="@drawable/bordercard"
+            android:textColor="#ffffff"
+            android:padding="2dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rd_view="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="#fff"
+    app:contentPadding="5dp"
+    app:cardElevation="5dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/img"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:paddingRight="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/pic_title"
+            android:textColor="#222222"
+            android:text="This is the Title For the Photo"
+            android:textSize="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/img"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/pic_text"
+            android:text="Text For The Pic is mensoned here and thi is the text which is to be put in the text for the testing of the photos app"
+            android:textSize="16dp"
+            android:paddingTop="5dp"
+            android:layout_below="@+id/pic_title"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

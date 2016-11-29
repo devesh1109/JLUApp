@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="module.project.androidbraintech.jluapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".Utilities.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/CustomTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".activity.HomeScreen"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.CoursesAndFeesActivity"
+            android:label="Courses and Fees">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.LoginFormActivity"
+            android:label="Login" />
+        <activity
+            android:name=".activity.StudentProfileActivity"
+            android:label="@string/title_activity_student_profile" />
+        <activity
+            android:name=".activity.TimeTableActivity"
+            android:theme="@style/CustomTheme" />
+        <activity
+            android:name=".activity.WhyJluActivity"
+            android:label="Why JLU">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.CityOfBhopalActivity"
+            android:label="City Of Bhopal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.CampusLifeActivity"
+            android:label="Campus Life">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.CampusNewsActivity"
+            android:label="Campus News">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.ContactDirectory"
+            android:label="Contacts Directory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.EnquiryActivity"
+            android:label="Enquiry">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".activity.howToReachUs"
+            android:label="How To Reach Us">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
+    </application>
+
+</manifest>
