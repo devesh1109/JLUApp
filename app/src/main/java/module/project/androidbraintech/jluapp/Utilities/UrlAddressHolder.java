@@ -35,13 +35,14 @@ public class UrlAddressHolder {
     public  static String ENQUIRY="postenquiry.php";
 
     public  static String CONTACTS="contact.php";
- 
+
     public static String CAMPUS_ALERTS="campusalerts.php";
 
     public static String PLACEMENT_NEWS="placementnews.php";
 
     public static String HOUSEPOINTS="housepoints.php";
 
+    public static String FEEDBACK="feedback.php";
 
 
 
