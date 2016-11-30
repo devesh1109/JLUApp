@@ -11,6 +11,16 @@ public class ContentContactList {
     private String pos;
     String num;
     private int img;
+
+    public ContentContactList(String name,String des,String num){
+        this.name=name;
+        this.pos=des;
+        this.num=num;
+
+    }
+
+
+
     public String getName() {
         return name;
     }

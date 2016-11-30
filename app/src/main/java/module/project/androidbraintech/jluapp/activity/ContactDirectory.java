@@ -34,29 +34,46 @@ import java.util.ArrayList;
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.SimpleDividerItemDecoration;
 import module.project.androidbraintech.jluapp.Utilities.SimpleDividerItemGridDecoration;
+import module.project.androidbraintech.jluapp.Utilities.UrlAddressHolder;
+import module.project.androidbraintech.jluapp.adapters.CityOfBhopalAdapter;
 import module.project.androidbraintech.jluapp.adapters.ContactDirectoryAdapter;
+import module.project.androidbraintech.jluapp.containers.ContentCityOfBhopal;
 import module.project.androidbraintech.jluapp.containers.ContentContactList;
 
 
 public class ContactDirectory extends AppCompatActivity {
     SearchView sv;
+     ContentContactList objectSet;
+    ArrayList<ContentContactList> data;
+    RecyclerView rv;
+     ContactDirectoryAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_dir);
+        setContentView(R.layout.content_contact_dir);
 
 
 
-        sv= (SearchView) findViewById(R.id.mSearch);
-        RecyclerView rv= (RecyclerView) findViewById(R.id.myRecycler);
-        //SET ITS PROPETRIES
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setItemAnimator(new DefaultItemAnimator());
-        rv.addItemDecoration(new SimpleDividerItemDecoration(30));
-        //ADAPTER
+        //sv= (SearchView) findViewById(R.id.mSearch);
+        rv = (RecyclerView) findViewById(R.id.myRecycler);
+        final LinearLayoutManager linear = new LinearLayoutManager(getApplicationContext());
+        linear.setOrientation(LinearLayoutManager.VERTICAL);
+        rv.setLayoutManager(linear);
+        rv.setNestedScrollingEnabled(false);
+        rv.addItemDecoration(new SimpleDividerItemDecoration( 20));
+
+        //Todo @Devesh   redo searching
+
+       /* //ADAPTER
         final ContactDirectoryAdapter adapter=new ContactDirectoryAdapter(this,getPlayers());
         rv.setAdapter(adapter);
         //SEARCH
+
+        */
+
+
+        /*
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -69,7 +86,68 @@ public class ContactDirectory extends AppCompatActivity {
                 return false;
             }
         });
+
+
+*/
+        getContacts();
+
+
+
+
     }
+
+     void getContacts() {
+
+         data = new ArrayList<>();
+         StringRequest contactReq = new StringRequest(Request.Method.GET, UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.CONTACTS, new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response) {
+                 try {
+                     Log.d("KEY_RESPONSE",response);
+                     JSONObject jsonObject = new JSONObject(response);
+                     JSONArray jsonData;
+                     int flag = jsonObject.getInt("success");
+                     if (flag == 1) {
+                         jsonData = jsonObject.getJSONArray("list");
+                         for (int j = 0; j < jsonData.length(); j++) {
+                             JSONObject jsonRow = jsonData.getJSONObject(j);
+                             objectSet = new ContentContactList(jsonRow.getString("cd_name"), jsonRow.getString("cd_des"), jsonRow.getString("cd_num"));
+                             data.add(objectSet);
+
+                         }
+
+                          mAdapter = new ContactDirectoryAdapter(ContactDirectory.this,data );
+                          rv.setAdapter(mAdapter);
+
+                     } else {
+                         Log.d("KEY_ELSE",response);
+                         Toast.makeText( ContactDirectory.this, "Unable to Connect .", Toast.LENGTH_LONG).show();
+                     }
+                 } catch (Exception e) {
+                     Log.d("Key_CATCH",e.toString());
+                 }
+             }
+         }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error) {
+                 Log.d("KEY_ERROR",error.toString());
+                 Toast.makeText( ContactDirectory.this, "Error in Connection." + error, Toast.LENGTH_LONG).show();
+             }
+         });
+
+
+         RequestQueue requestQueue = Volley.newRequestQueue(ContactDirectory.this);
+         requestQueue.add(contactReq);
+     }
+
+
+
+
+
+
+
+
+    /*
     //ADD PLAYERS TO ARRAYLIST
     private ArrayList<ContentContactList> getPlayers()
     {
@@ -112,4 +190,6 @@ public class ContactDirectory extends AppCompatActivity {
         contact.add(p);
         return contact;
     }
+
+    */
 }

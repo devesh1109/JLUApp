@@ -58,6 +58,8 @@ public class CampusNewsActivity extends AppCompatActivity {
         rv.addItemDecoration(new SimpleDividerItemDecoration( 20));
         getDataSet();
     }
+
+
     public void getDataSet() {
 
         data = new ArrayList<>();

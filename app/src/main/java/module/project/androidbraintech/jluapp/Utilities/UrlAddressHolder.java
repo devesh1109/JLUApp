@@ -34,6 +34,8 @@ public class UrlAddressHolder {
 
     public  static String ENQUIRY="postenquiry.php";
 
+    public  static String CONTACTS="contact.php";
+
 
 
 

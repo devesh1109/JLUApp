@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
+import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
 import module.project.androidbraintech.jluapp.activity.CoursesAndFeesActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
@@ -99,7 +100,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                     //CAMPUS NEWS
 
                     if(Utils.checkIfNetworkIsAvailable(context)) {
-                        Intent intent = new Intent(context, CoursesAndFeesActivity.class);
+                        Intent intent = new Intent(context, CampusNewsActivity.class);
                         context.startActivity(intent);
                     }
 

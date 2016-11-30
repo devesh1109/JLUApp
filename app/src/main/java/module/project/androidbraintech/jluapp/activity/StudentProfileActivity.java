@@ -18,6 +18,7 @@ import com.pkmmte.view.CircularImageView;
 
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.MySharedPreferences;
+import module.project.androidbraintech.jluapp.Utilities.SchoolAndCourseResolver;
 import module.project.androidbraintech.jluapp.Utilities.UrlAddressHolder;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.containers.ContentRegisteredStudent;
@@ -33,7 +34,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_profile);
+        setContentView(R.layout.content_student_profile);
 
 
         simage=(CircularImageView) findViewById(R.id.s_image);
@@ -50,14 +51,16 @@ public class StudentProfileActivity extends AppCompatActivity {
         address=(TextView)findViewById(R.id.sp_address);
 
         RelativeLayout rl=(RelativeLayout)findViewById(R.id.RL);
-       rl.getBackground().setAlpha(Utils.ALPHA_Value);
+        rl.getBackground().setAlpha(180);
 
         info =MySharedPreferences.GetStudentInfo(StudentProfileActivity.this);
 
         id.setText(info.getSp_roll_no());
         name.setText(info.getSp_name());
-        school.setText(" "+info.getSp_school());
-        course.setText(" "+info.getSp_course());
+
+
+        school.setText(" "+  SchoolAndCourseResolver.GetSchoolName(info.getSp_school()));
+        course.setText(" "+SchoolAndCourseResolver.getCourseName(info.getSp_course()));
         year.setText(" "+info.getSp_year());
         sem.setText(" "+info.getSp_sem() );
         house.setText(info.getSp_house());

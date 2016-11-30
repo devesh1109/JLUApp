@@ -52,7 +52,7 @@ public class ContactDirectoryAdapter extends RecyclerView.Adapter<MyHolder> impl
         //BIND DATA
         holder.posTxt.setText(players.get(position).getPos());
         holder.nameTxt.setText(players.get(position).getName());
-        holder.img.setImageResource(players.get(position).getImg());
+        holder.numTxt.setText(players.get(position).getNum());
         //IMPLEMENT CLICK LISTENET
         holder.setItemClickListener(new ItemClickListener() {
             @Override
@@ -80,16 +80,17 @@ public class ContactDirectoryAdapter extends RecyclerView.Adapter<MyHolder> impl
 }
  class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //OUR VIEWS
-    ImageView img;
-    TextView nameTxt,posTxt;
+
+    TextView nameTxt,posTxt,numTxt;
     private ItemClickListener itemClickListener;
 
 
     public MyHolder(View itemView) {
         super(itemView);
-        this.img= (ImageView) itemView.findViewById(R.id.playerImage);
+
         this.nameTxt= (TextView) itemView.findViewById(R.id.nameTxt);
         this.posTxt= (TextView) itemView.findViewById(R.id.posTxt);
+        this.numTxt= (TextView) itemView.findViewById(R.id.numText);
         itemView.setOnClickListener(this);
     }
     @Override

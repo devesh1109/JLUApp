@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -20,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -358,11 +360,12 @@ public class LoginFormActivity extends AppCompatActivity {
 
                         }else if(rtype==2){
 
+                            String school="",course="";
                             // save students info
                             JSONArray arr=object.getJSONArray("list");
                             JSONObject o=arr.getJSONObject(0);
 
-                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_course"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"));
+                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_school"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"));
                             MySharedPreferences.SaveCurrentStudent(LoginFormActivity.this,info);
 
 
