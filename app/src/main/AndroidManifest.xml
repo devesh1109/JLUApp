@@ -100,11 +100,13 @@
         <activity
             android:name=".activity.howToReachUs"
             android:label="How To Reach Us">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeScreen" />
         </activity>
+        <activity android:name=".activity.FacultyProfileActivity" />
+        <activity android:name=".activity.TakeAppointmentActivity" />
+        <activity android:name=".activity.AppointmentsActivity"></activity>
     </application>
 
 </manifest>

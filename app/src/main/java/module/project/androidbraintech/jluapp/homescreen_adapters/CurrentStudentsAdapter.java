@@ -17,7 +17,7 @@ import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
-import module.project.androidbraintech.jluapp.activity.CoursesAndFeesActivity;
+import module.project.androidbraintech.jluapp.activity.TakeAppointmentActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
 import module.project.androidbraintech.jluapp.activity.TimeTableActivity;
 import module.project.androidbraintech.jluapp.containers.ContentHomeScreenItems;
@@ -137,6 +137,12 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
 
                     //faculty appointment
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, TakeAppointmentActivity.class);
+                        context.startActivity(intent);
+                    }
+
+
 
 
                 }else if(m.getId()==11){
@@ -216,7 +222,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         ContentHomeScreenItems content;
         ArrayList<ContentHomeScreenItems> list=new ArrayList<ContentHomeScreenItems>();
 
-        content=new ContentHomeScreenItems(1,"Student Profile",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(1,"Student Profile",R.drawable.imgg11);
         list.add(content);
 
         content=new ContentHomeScreenItems(2,"Your Course And Modules",R.drawable.fee);
@@ -225,7 +231,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         content=new ContentHomeScreenItems(3,"Your Attendance",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(4,"Your Time Table",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(4,"Your Time Table",R.drawable.guest);
         list.add(content);
 
         content=new ContentHomeScreenItems(5,"Campus Alerts",R.drawable.guestimage);
@@ -258,7 +264,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         content=new ContentHomeScreenItems(14,"Campus Map",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(15,"Contact Directory",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(15,"Contact Directory",R.drawable.guest);
         list.add(content);
 
 

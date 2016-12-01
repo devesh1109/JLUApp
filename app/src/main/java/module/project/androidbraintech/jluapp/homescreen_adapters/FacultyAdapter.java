@@ -15,7 +15,10 @@ import java.util.ArrayList;
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
+import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
+import module.project.androidbraintech.jluapp.activity.ContactDirectory;
 import module.project.androidbraintech.jluapp.activity.CoursesAndFeesActivity;
+import module.project.androidbraintech.jluapp.activity.FacultyProfileActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
 import module.project.androidbraintech.jluapp.activity.TimeTableActivity;
 import module.project.androidbraintech.jluapp.containers.ContentHomeScreenItems;
@@ -62,6 +65,10 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                 if(m.getId()==1){
 
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, FacultyProfileActivity.class);
+                        context.startActivity(intent);
+                    }
 
 
 
@@ -70,6 +77,10 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                 }else if(m.getId()==3){
 
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, TimeTableActivity.class);
+                        context.startActivity(intent);
+                    }
 
                 }else if(m.getId()==4){
 
@@ -81,7 +92,7 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     //CAMPUS NEWS
 
                     if(Utils.checkIfNetworkIsAvailable(context)) {
-                        Intent intent = new Intent(context, CoursesAndFeesActivity.class);
+                        Intent intent = new Intent(context, CampusNewsActivity.class);
                         context.startActivity(intent);
                     }
 
@@ -137,28 +148,16 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }else if(m.getId()==12){
 
 
+                    //contact directory
 
-
-
-                }else if(m.getId()==13){
-
-
-
-
-                }else if(m.getId()==14){
-
-
-
-
-
-                }else if(m.getId()==15){
-
-
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, ContactDirectory.class);
+                        context.startActivity(intent);
+                    }
 
 
 
                 }
-
             }
         });
 
@@ -198,25 +197,25 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ContentHomeScreenItems content;
         ArrayList<ContentHomeScreenItems> list=new ArrayList<ContentHomeScreenItems>();
 
-        content=new ContentHomeScreenItems(1,"Faculty Profile",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(1,"Faculty Profile",R.drawable.whyjlu);
         list.add(content);
 
         content=new ContentHomeScreenItems(2,"Your Modules",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(3,"Your Time Table",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(3,"Your Time Table",R.drawable.guest);
         list.add(content);
 
         content=new ContentHomeScreenItems(4,"Campus Alerts",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(5,"Campus News",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(5,"Campus News",R.drawable.news);
         list.add(content);
 
         content=new ContentHomeScreenItems(6,"House Point Tables",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(7,"Campus Life",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(7,"Campus Life",R.drawable.life);
         list.add(content);
 
         content=new ContentHomeScreenItems(8,"Appointments",R.drawable.guestimage);
@@ -231,7 +230,7 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         content=new ContentHomeScreenItems(11,"Campus Map",R.drawable.guestimage);
         list.add(content);
 
-        content=new ContentHomeScreenItems(12,"Contact Directory",R.drawable.guestimage);
+        content=new ContentHomeScreenItems(12,"Contact Directory",R.drawable.fee);
         list.add(content);
 
 

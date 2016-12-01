@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
+import module.project.androidbraintech.jluapp.containers.ContentFaculty;
 import module.project.androidbraintech.jluapp.containers.ContentRegisteredStudent;
 
 /**
@@ -71,13 +72,25 @@ public class MySharedPreferences {
         
     }
 
-    public static void SaveFaculty(Context context,String id){
+    public static void SaveFaculty(Context context,ContentFaculty info){
 
-        SharedPreferences sp=context.getSharedPreferences("JLU_REG_ID",Context.MODE_APPEND);
+        SharedPreferences sp=context.getSharedPreferences("JLU_REG_FAC",Context.MODE_APPEND);
         SharedPreferences.Editor editor=sp.edit();
         editor.clear();
-        editor.putString("id",id);
+        Gson gson=new Gson();
+        String sinfo=gson.toJson(info);
+        editor.putString("info",sinfo);
         editor.apply();
+    }
+
+    public static ContentFaculty getFacultyInfo(Context context){
+        Gson gson=new Gson();
+        SharedPreferences sp=context.getSharedPreferences("JLU_REG_FAC",Context.MODE_APPEND);
+
+        Type type=new TypeToken<ContentFaculty>(){}.getType();
+
+        return gson.fromJson(sp.getString("info",null),type);
+
 
     }
 

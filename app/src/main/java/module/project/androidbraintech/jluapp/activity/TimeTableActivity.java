@@ -15,13 +15,15 @@ import com.android.volley.toolbox.Volley;
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.MySharedPreferences;
 import module.project.androidbraintech.jluapp.Utilities.UrlAddressHolder;
+import module.project.androidbraintech.jluapp.containers.ContentFaculty;
 import module.project.androidbraintech.jluapp.containers.ContentRegisteredStudent;
 
 public class TimeTableActivity extends AppCompatActivity {
 
     ImageView image;
-    ContentRegisteredStudent info;
-    String file;
+    ContentRegisteredStudent Sinfo;
+    ContentFaculty Finfo;
+    String file,url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +32,22 @@ public class TimeTableActivity extends AppCompatActivity {
 
         image=(ImageView)findViewById(R.id.timetable);
 
-        info= MySharedPreferences.GetStudentInfo(TimeTableActivity.this);
+        if(MySharedPreferences.getAdapterType(TimeTableActivity.this)==3){
+            Sinfo= MySharedPreferences.GetStudentInfo(TimeTableActivity.this);
 
-        file=info.getSp_school()+info.getSp_course()+info.getSp_sem()+info.getSp_section()+".png";
+            file=Sinfo.getSp_school()+Sinfo.getSp_course()+Sinfo.getSp_sem()+Sinfo.getSp_section()+".png";
+
+            url= UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.TIMETABLE+file;
+
+        }else if(MySharedPreferences.getAdapterType(TimeTableActivity.this)==4) {
+
+            Finfo=MySharedPreferences.getFacultyInfo(TimeTableActivity.this);
+
+            url=UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.TIMETABLE+Finfo.getFid();
+
+
+        }
+
 
 
         CallTimeTable();
@@ -44,7 +59,7 @@ public class TimeTableActivity extends AppCompatActivity {
 
     private void CallTimeTable() {
 
-        String url= UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.TIMETABLE+file;
+
 
         ImageRequest req=new ImageRequest(url, new Response.Listener<Bitmap>() {
             @Override

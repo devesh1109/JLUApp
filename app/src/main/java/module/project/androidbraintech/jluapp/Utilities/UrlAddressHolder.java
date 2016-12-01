@@ -44,6 +44,13 @@ public class UrlAddressHolder {
 
     public static String FEEDBACK="feedback.php";
 
+    public static String FACULTYLIST="facultylist.php";
+
+    public static String SUBMIT_APPOINTMENT="submitappointment.php";
+
+    public static String APPOINTMENTS="appointments.php";
+
+    public static String SET_APPOINTMENT="setappointment.php";
 
 
 

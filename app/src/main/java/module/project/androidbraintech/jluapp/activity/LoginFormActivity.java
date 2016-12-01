@@ -30,6 +30,7 @@ import module.project.androidbraintech.jluapp.Utilities.MyApplication;
 import module.project.androidbraintech.jluapp.Utilities.MySharedPreferences;
 import module.project.androidbraintech.jluapp.Utilities.UrlAddressHolder;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
+import module.project.androidbraintech.jluapp.containers.ContentFaculty;
 import module.project.androidbraintech.jluapp.containers.ContentRegisteredStudent;
 
 public class LoginFormActivity extends AppCompatActivity {
@@ -203,7 +204,7 @@ public class LoginFormActivity extends AppCompatActivity {
                 url=UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.FACULTY_FORM;
                 value=fform.getText().toString();
 
-                MySharedPreferences.SaveFaculty(LoginFormActivity.this,value);
+
                 MySharedPreferences.saveAdapterType(LoginFormActivity.this,4);
 
                 NetworkCallForRegistered();
@@ -356,6 +357,7 @@ public class LoginFormActivity extends AppCompatActivity {
                         if(rtype==1){
 
 
+                            Log.d("Prospective","success"+response);
 
 
                         }else if(rtype==2){
@@ -372,6 +374,13 @@ public class LoginFormActivity extends AppCompatActivity {
 
 
                         }else if(rtype==3){
+
+                            JSONArray arr=object.getJSONArray("list");
+                            JSONObject o=arr.getJSONObject(0);
+
+                            ContentFaculty info=new ContentFaculty(o.getString("f_fid"),o.getString("f_name"),o.getString("f_designation"),o.getString("f_department"),o.getString("f_school"),o.getString("f_contact"),o.getString("f_email"),o.getString("f_qual"),o.getString("f_desc"),o.getString("f_url"));
+
+                            MySharedPreferences.SaveFaculty(LoginFormActivity.this,info);
 
 
                         }
