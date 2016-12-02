@@ -55,7 +55,7 @@ public class ContactDirectory extends AppCompatActivity {
 
 
 
-        //sv= (SearchView) findViewById(R.id.mSearch);
+        sv= (SearchView) findViewById(R.id.mSearch);
         rv = (RecyclerView) findViewById(R.id.myRecycler);
         final LinearLayoutManager linear = new LinearLayoutManager(getApplicationContext());
         linear.setOrientation(LinearLayoutManager.VERTICAL);
@@ -65,15 +65,10 @@ public class ContactDirectory extends AppCompatActivity {
 
         //Todo @Devesh   redo searching
 
-       /* //ADAPTER
-        final ContactDirectoryAdapter adapter=new ContactDirectoryAdapter(this,getPlayers());
-        rv.setAdapter(adapter);
+       //ADAPTER
+        getContacts();
         //SEARCH
 
-        */
-
-
-        /*
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -82,18 +77,10 @@ public class ContactDirectory extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String query) {
                 //FILTER AS YOU TYPE
-                adapter.getFilter().filter(query);
+                mAdapter.getFilter().filter(query);
                 return false;
             }
         });
-
-
-*/
-        getContacts();
-
-
-
-
     }
 
      void getContacts() {
@@ -140,56 +127,4 @@ public class ContactDirectory extends AppCompatActivity {
          requestQueue.add(contactReq);
      }
 
-
-
-
-
-
-
-
-    /*
-    //ADD PLAYERS TO ARRAYLIST
-    private ArrayList<ContentContactList> getPlayers()
-    {
-        ArrayList<ContentContactList> contact=new ArrayList<>();
-        ContentContactList p=new ContentContactList();
-        p.setName("Pragyanshu");
-        p.setPos("Student");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        p=new ContentContactList();
-        p.setName("Tushar");
-        p.setPos("Registrar");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        p=new ContentContactList();
-        p.setName("Michael Carrick");
-        p.setPos("Midfielder");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        p=new ContentContactList();
-        p.setName("Juan Mata");
-        p.setPos("Playmaker");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        p=new ContentContactList();
-        p.setName("Diego Costa");
-        p.setPos("Striker");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        p=new ContentContactList();
-        p.setName("Oscar");
-        p.setPos("Playmaker");
-        p.setNum("982746582");
-        p.setImg(R.drawable.registered);
-        contact.add(p);
-        return contact;
-    }
-
-    */
 }
