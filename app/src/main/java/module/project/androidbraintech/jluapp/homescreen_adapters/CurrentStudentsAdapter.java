@@ -1,18 +1,23 @@
 package module.project.androidbraintech.jluapp.homescreen_adapters;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import module.project.androidbraintech.jluapp.R;
+import module.project.androidbraintech.jluapp.Utilities.MySharedPreferences;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
@@ -76,6 +81,16 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 }else if(m.getId()==3){
 
                     //your attendance
+
+                    Dialog cDialog = new Dialog(context);
+                    cDialog.setTitle("Your Attendance" );
+                    cDialog.setContentView(R.layout.content_ateendance);
+                    TextView textView=(TextView)cDialog.findViewById(R.id.at);
+                    textView.setText(MySharedPreferences.GetStudentInfo(context).getSp_attendance()+"%");
+                    cDialog.show();
+
+
+
 
                 }else if(m.getId()==4){
 

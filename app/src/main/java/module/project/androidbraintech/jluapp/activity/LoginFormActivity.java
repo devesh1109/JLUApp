@@ -367,7 +367,7 @@ public class LoginFormActivity extends AppCompatActivity {
                             JSONArray arr=object.getJSONArray("list");
                             JSONObject o=arr.getJSONObject(0);
 
-                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_school"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"));
+                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_school"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"),o.getString("sp_attendance"));
                             MySharedPreferences.SaveCurrentStudent(LoginFormActivity.this,info);
 
 

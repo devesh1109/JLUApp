@@ -6,10 +6,10 @@ package module.project.androidbraintech.jluapp.containers;
 public class ContentRegisteredStudent {
 
     int sp_id,sp_year,sp_sem;
-    String sp_roll_no,sp_name,sp_url,sp_house,sp_contact_no,sp_address,sp_school,sp_course,sp_section;
+    String sp_roll_no,sp_name,sp_url,sp_house,sp_contact_no,sp_address,sp_school,sp_course,sp_section,sp_attendance;
 
 
-    public ContentRegisteredStudent(int sp_id, String sp_school, String sp_course, int sp_year, int sp_sem, String sp_roll_no, String sp_name, String sp_url, String sp_house, String sp_contact_no, String sp_address,String sp_section) {
+    public ContentRegisteredStudent(int sp_id, String sp_school, String sp_course, int sp_year, int sp_sem, String sp_roll_no, String sp_name, String sp_url, String sp_house, String sp_contact_no, String sp_address,String sp_section,String sp_attendance) {
         this.sp_id = sp_id;
         this.sp_school = sp_school;
         this.sp_course = sp_course;
@@ -22,6 +22,7 @@ public class ContentRegisteredStudent {
         this.sp_contact_no = sp_contact_no;
         this.sp_address = sp_address;
         this.sp_section=sp_section;
+        this.sp_attendance=sp_attendance;
     }
 
     public int getSp_id() {
@@ -69,4 +70,8 @@ public class ContentRegisteredStudent {
     }
 
     public String getSp_section(){return sp_section;}
+
+    public String getSp_attendance() {
+        return sp_attendance;
+    }
 }
