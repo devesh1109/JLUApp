@@ -52,6 +52,8 @@ public class UrlAddressHolder {
 
     public static String SET_APPOINTMENT="setappointment.php";
 
+    public static String STUDENT_MODULES="studentmodules.php";
+
 
 
 

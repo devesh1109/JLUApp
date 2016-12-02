@@ -19,6 +19,7 @@ import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
 import module.project.androidbraintech.jluapp.activity.CoursesAndFeesActivity;
+import module.project.androidbraintech.jluapp.activity.FacultyModules;
 import module.project.androidbraintech.jluapp.activity.FacultyProfileActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
 import module.project.androidbraintech.jluapp.activity.TimeTableActivity;
@@ -74,6 +75,11 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
                 }else if(m.getId()==2){
+
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, FacultyModules.class);
+                        context.startActivity(intent);
+                    }
 
 
                 }else if(m.getId()==3){
