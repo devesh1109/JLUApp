@@ -62,6 +62,7 @@ public class AppointmentsActivity extends AppCompatActivity {
     String fac_id;
      String setAppointmentURL;
      String aid;
+    int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +107,7 @@ public class AppointmentsActivity extends AppCompatActivity {
 
                          for (int i = 0; i < list.length(); i++) {
                              JSONObject o = list.getJSONObject(i);
-                             ainfo = new ContentAppointments(o.getString("a_aid"),o.getString("a_sid"),o.getString("a_fid"),o.getString("a_sname"),o.getString("a_fname"),o.getString("a_subject"),o.getString("a_date"),o.getString("fdate"));
+                             ainfo = new ContentAppointments(o.getString("a_id"),o.getString("a_sid"),o.getString("a_fid"),o.getString("a_sname"),o.getString("a_fname"),o.getString("a_subject"),o.getString("a_date"),o.getString("fdate"));
                              aList.add(ainfo);
                          }
 
@@ -181,7 +182,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder;
 
@@ -210,6 +211,7 @@ public class AppointmentsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
+                    pos=position;
                     aid=map.getA_id();
                     ChooseDate();
 
@@ -266,6 +268,8 @@ public class AppointmentsActivity extends AppCompatActivity {
 
     void SetAppointment(){
 
+        Log.e("SET APPOINTMENT FOR","DATE:"+formattedDate+"   a_id:"+aid);
+
         setAppointmentURL=UrlAddressHolder.BASE_ADDRESS+UrlAddressHolder.SET_APPOINTMENT;
 
         StringRequest guestRequest = new StringRequest(Request.Method.POST, setAppointmentURL, new Response.Listener<String>() {
@@ -274,11 +278,14 @@ public class AppointmentsActivity extends AppCompatActivity {
 
 
                 try {
-                    Log.d("REGISTEREDLOGIN respose", response);
+                    Log.d("SET appointment respose", response);
                     JSONObject object = new JSONObject(response);
                     int r=object.getInt("success");
 
                     if(r==1) {
+
+                        adapter.list.get(pos).setFdate(formattedDate);
+                        adapter.notifyDataSetChanged();
 
                         Toast.makeText(AppointmentsActivity.this,"Success !",Toast.LENGTH_LONG).show();
 
@@ -311,7 +318,7 @@ public class AppointmentsActivity extends AppCompatActivity {
 
 
 
-                Log.d("REGISTEREDLOGIN error", error.toString());
+                Log.d("SET appointment error", error.toString());
                 Toast.makeText(AppointmentsActivity.this,"Error! please redo the action",Toast.LENGTH_LONG).show();
 
             }

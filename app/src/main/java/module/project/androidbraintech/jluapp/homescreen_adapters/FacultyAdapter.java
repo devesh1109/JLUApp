@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
+import module.project.androidbraintech.jluapp.activity.AppointmentsActivity;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
@@ -120,6 +121,10 @@ public class FacultyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }else if(m.getId()==8){
 
 
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, AppointmentsActivity.class);
+                        context.startActivity(intent);
+                    }
 
 
 

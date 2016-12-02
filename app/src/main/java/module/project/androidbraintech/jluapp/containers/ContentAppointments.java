@@ -49,4 +49,8 @@ public class ContentAppointments {
     public String getFdate() {
         return fdate;
     }
+
+    public void setFdate(String fdate) {
+        this.fdate = fdate;
+    }
 }

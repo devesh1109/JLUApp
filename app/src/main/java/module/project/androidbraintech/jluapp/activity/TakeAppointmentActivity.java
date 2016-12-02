@@ -58,6 +58,7 @@ public class TakeAppointmentActivity extends AppCompatActivity {
     String submiturl;
      String fac_id;
 
+    Dialog cDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,7 +212,7 @@ public class TakeAppointmentActivity extends AppCompatActivity {
      void TakeAppointmentDialog() {
 
 
-         Dialog cDialog = new Dialog(TakeAppointmentActivity.this);
+         cDialog = new Dialog(TakeAppointmentActivity.this);
          cDialog.setTitle("Fill up the form");
          cDialog.setContentView(R.layout.content_take_appointment);
          cDialog.show();
@@ -256,7 +257,9 @@ public class TakeAppointmentActivity extends AppCompatActivity {
                      @Override
                      public void onResponse(String response) {
 
+                         cDialog.hide();
                          try {
+
                              Log.d("KEY_RESPONSE",response);
                              JSONObject jsonObject = new JSONObject(response);
                              JSONArray jsonData;
@@ -279,6 +282,7 @@ public class TakeAppointmentActivity extends AppCompatActivity {
              @Override
              public void onErrorResponse(VolleyError error) {
                  Log.d("ERROR",error.toString());
+                 cDialog.hide();
              }
          }){
              @Override

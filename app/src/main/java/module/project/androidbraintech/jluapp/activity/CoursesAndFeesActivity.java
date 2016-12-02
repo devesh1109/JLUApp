@@ -50,7 +50,7 @@ public class CoursesAndFeesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courses_and_fees);
+        setContentView(R.layout.activity_coursesandfees);
 
 
 
