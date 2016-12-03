@@ -5,9 +5,9 @@ package module.project.androidbraintech.jluapp.containers;
  */
 public class ContentFaculty {
 
-    String fid, name, designation, department, school, contact, email, qualification, description, url;
+    String fid, name, designation, department, school, contact, email, qualification, description, url,course;
 
-    public ContentFaculty(String fid, String name, String designation, String department, String school, String contact, String email, String qualification, String description, String url) {
+    public ContentFaculty(String fid, String name, String designation, String department, String school, String contact, String email, String qualification, String description, String url,String course) {
         this.fid = fid;
         this.name = name;
         this.designation = designation;
@@ -18,6 +18,7 @@ public class ContentFaculty {
         this.qualification = qualification;
         this.description = description;
         this.url = url;
+        this.course=course;
     }
 
     public String getFid() {
@@ -58,5 +59,9 @@ public class ContentFaculty {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getCourse() {
+        return course;
     }
 }

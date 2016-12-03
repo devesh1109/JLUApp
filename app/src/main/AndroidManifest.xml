@@ -104,37 +104,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeScreen" />
         </activity>
-        <activity
-            android:name=".activity.FacultyProfileActivity"
-            android:label="Profile">
+        <activity android:name=".activity.FacultyProfileActivity"  android:label="Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeScreen" />
         </activity>
-        <activity
-            android:name=".activity.TakeAppointmentActivity"
-            android:label="Appointment">
+
+        <activity android:name=".activity.TakeAppointmentActivity"  android:label="Appointment" >
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeScreen" />
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".activity.HomeScreen" />
         </activity>
-        <activity
-            android:name=".activity.AppointmentsActivity"
-            android:label="Appointments">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeScreen" />
-        </activity>
-        <activity
-            android:name=".activity.FeedbackActivity"
-            android:label="Appointments">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeScreen" />
-        </activity>
-        <activity
-            android:name=".activity.CampusMap"
-            android:label="@string/title_activity_campus_map">
+        <activity android:name=".activity.AppointmentsActivity"  android:label="Appointments">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeScreen" />

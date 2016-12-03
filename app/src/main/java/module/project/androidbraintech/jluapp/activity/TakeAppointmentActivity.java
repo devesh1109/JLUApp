@@ -102,7 +102,7 @@ public class TakeAppointmentActivity extends AppCompatActivity {
 
                         for (int i = 0; i < list.length(); i++) {
                             JSONObject o = list.getJSONObject(i);
-                            finfo = new ContentFaculty(o.getString("f_fid"),o.getString("f_name"),"",o.getString("f_department"),"","","","","","");
+                            finfo = new ContentFaculty(o.getString("f_fid"),o.getString("f_name"),"",o.getString("f_department"),"","","","","","","");
                             fList.add(finfo);
                         }
 

@@ -20,10 +20,8 @@ import module.project.androidbraintech.jluapp.R;
 import module.project.androidbraintech.jluapp.Utilities.MySharedPreferences;
 import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
-import module.project.androidbraintech.jluapp.activity.CampusMap;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
-import module.project.androidbraintech.jluapp.activity.FeedbackActivity;
 import module.project.androidbraintech.jluapp.activity.TakeAppointmentActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
 import module.project.androidbraintech.jluapp.activity.TimeTableActivity;
@@ -164,10 +162,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
                 }else if(m.getId()==11){
 
-                    if(Utils.checkIfNetworkIsAvailable(context)) {
-                        Intent intent = new Intent(context, FeedbackActivity.class);
-                        context.startActivity(intent);
-                    }
+
 
                     //your feedback
 
@@ -186,10 +181,7 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
                 }else if(m.getId()==14){
 
-                    if(Utils.checkIfNetworkIsAvailable(context)) {
-                        Intent intent = new Intent(context, CampusMap.class);
-                        context.startActivity(intent);
-                    }
+
                     //campus map
 
 

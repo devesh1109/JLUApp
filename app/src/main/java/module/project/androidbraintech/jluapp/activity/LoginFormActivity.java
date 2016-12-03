@@ -367,7 +367,7 @@ public class LoginFormActivity extends AppCompatActivity {
                             JSONArray arr=object.getJSONArray("list");
                             JSONObject o=arr.getJSONObject(0);
 
-                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_school"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"),o.getString("sp_attendance"));
+                            ContentRegisteredStudent info=new ContentRegisteredStudent(o.getInt("sp_id"),o.getString("sp_school"),o.getString("sp_course"),o.getInt("sp_year"),o.getInt("sp_sem"),o.getString("sp_roll_no"),o.getString("sp_name"),o.getString("sp_url"),o.getString("sp_house"),o.getString("sp_contact_no"),o.getString("sp_address"),o.getString("sp_section"),o.getString("sp_attendance"));
                             MySharedPreferences.SaveCurrentStudent(LoginFormActivity.this,info);
 
 
@@ -378,7 +378,7 @@ public class LoginFormActivity extends AppCompatActivity {
                             JSONArray arr=object.getJSONArray("list");
                             JSONObject o=arr.getJSONObject(0);
 
-                            ContentFaculty info=new ContentFaculty(o.getString("f_fid"),o.getString("f_name"),o.getString("f_designation"),o.getString("f_department"),o.getString("f_school"),o.getString("f_contact"),o.getString("f_email"),o.getString("f_qual"),o.getString("f_desc"),o.getString("f_url"));
+                            ContentFaculty info=new ContentFaculty(o.getString("f_fid"),o.getString("f_name"),o.getString("f_designation"),o.getString("f_department"),o.getString("f_school"),o.getString("f_contact"),o.getString("f_email"),o.getString("f_qual"),o.getString("f_desc"),o.getString("f_url"),o.getString("f_course"));
 
                             MySharedPreferences.SaveFaculty(LoginFormActivity.this,info);
 

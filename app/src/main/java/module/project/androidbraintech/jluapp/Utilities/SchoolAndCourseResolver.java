@@ -48,7 +48,7 @@ public class SchoolAndCourseResolver {
 
         try {
             switch (o){
-                case "1":course="BTECH";
+                case "1":course="BTECH Mechanical Engineering";
                     break;
                 case "2":course="BCA";
                     break;
@@ -77,6 +77,12 @@ public class SchoolAndCourseResolver {
                 case "14":course="PHD";
                     break;
                 case "15":course="MA Applied Economics";
+                    break;
+                case "16":course="BTECH Civil Engineering";
+                    break;
+                case "17":course="BTECH Computer Science";
+                    break;
+                case "18":course="BTECH Computer Science (Mobile Application & Cloud Computing)";
                     break;
             }
         } catch (Exception e) {
