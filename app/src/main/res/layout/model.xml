@@ -43,6 +43,7 @@
             android:layout_below="@+id/posTxt"
             android:layout_toRightOf="@+id/playerImage"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:paddingBottom="1dp"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -22,15 +22,15 @@ import module.project.androidbraintech.jluapp.containers.ContentContactList;
 
 public class ContactDirectoryAdapter extends RecyclerView.Adapter<MyHolder> implements Filterable {
     Context c;
-    public ArrayList<ContentContactList> players;
+    public ArrayList<ContentContactList> contacts;
     ArrayList<ContentContactList> filterList;
 
     CustomFilter filter;
-    public ContactDirectoryAdapter(Context ctx, ArrayList<ContentContactList> players)
+    public ContactDirectoryAdapter(Context ctx, ArrayList<ContentContactList> contacts)
     {
         this.c=ctx;
-        this.players=players;
-        this.filterList=players;
+        this.contacts=contacts;
+        this.filterList=contacts;
     }
 
 
@@ -50,21 +50,21 @@ public class ContactDirectoryAdapter extends RecyclerView.Adapter<MyHolder> impl
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
         //BIND DATA
-        holder.posTxt.setText(players.get(position).getPos());
-        holder.nameTxt.setText(players.get(position).getName());
-        holder.numTxt.setText(players.get(position).getNum());
+        holder.posTxt.setText(contacts.get(position).getPos());
+        holder.nameTxt.setText(contacts.get(position).getName());
+        holder.numTxt.setText(contacts.get(position).getNum());
         //IMPLEMENT CLICK LISTENET
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
-                Snackbar.make(v,players.get(pos).getName(),Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v,contacts.get(pos).getName(),Snackbar.LENGTH_SHORT).show();
             }
         });
     }
     //GET TOTAL NUM OF PLAYERS
     @Override
     public int getItemCount() {
-        return players.size();
+        return contacts.size();
     }
 
     @Override

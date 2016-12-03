@@ -120,6 +120,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeScreen" />
         </activity>
+        <activity android:name=".activity.FeedbackActivity"  android:label="Appointments">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeScreen" />
+        </activity>
     </application>
 
 </manifest>

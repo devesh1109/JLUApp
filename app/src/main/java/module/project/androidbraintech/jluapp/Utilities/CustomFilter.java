@@ -49,7 +49,7 @@ public class CustomFilter extends Filter{
     }
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
-        adapter.players= (ArrayList<ContentContactList>) results.values;
+        adapter.contacts= (ArrayList<ContentContactList>) results.values;
         //REFRESH
         adapter.notifyDataSetChanged();
     }
