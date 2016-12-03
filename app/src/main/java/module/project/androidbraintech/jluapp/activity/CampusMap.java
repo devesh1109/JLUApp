@@ -12,14 +12,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import module.project.androidbraintech.jluapp.R;
 
-public class howToReachUs extends FragmentActivity implements OnMapReadyCallback {
+public class CampusMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_how_to_reach_us2);
+        setContentView(R.layout.activity_campus_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -39,10 +39,18 @@ public class howToReachUs extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng mJlu = new LatLng(23.203201, 77.294883);
-        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        mMap.addMarker(new MarkerOptions().position(mJlu).title("Jagran Lakecity University"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mJlu,15));
 
+        // Add a marker in Sydney and move the camera
+        LatLng mJlu = new LatLng(23.203201, 77.294883);
+        LatLng mBtech = new LatLng(23.203334, 77.294511);
+        LatLng mHotel = new LatLng(23.203345, 77.295022);
+        LatLng mMechLab = new LatLng(23.203044, 77.294975);
+        LatLng mBed = new LatLng(23.203010, 77.295287);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.addMarker(new MarkerOptions().position(mBtech).title("School Of Engineering and Technology"));
+        mMap.addMarker(new MarkerOptions().position(mHotel).title("School of Hotel Management"));
+        mMap.addMarker(new MarkerOptions().position(mMechLab).title("Mechanical Engineering Laboratory"));
+        mMap.addMarker(new MarkerOptions().position(mBed).title("School of Education"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mJlu,19));
     }
 }
