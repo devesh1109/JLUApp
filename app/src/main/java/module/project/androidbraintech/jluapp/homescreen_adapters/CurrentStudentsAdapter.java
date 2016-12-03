@@ -22,6 +22,7 @@ import module.project.androidbraintech.jluapp.Utilities.Utils;
 import module.project.androidbraintech.jluapp.activity.CampusLifeActivity;
 import module.project.androidbraintech.jluapp.activity.CampusNewsActivity;
 import module.project.androidbraintech.jluapp.activity.ContactDirectory;
+import module.project.androidbraintech.jluapp.activity.StudentModules;
 import module.project.androidbraintech.jluapp.activity.TakeAppointmentActivity;
 import module.project.androidbraintech.jluapp.activity.StudentProfileActivity;
 import module.project.androidbraintech.jluapp.activity.TimeTableActivity;
@@ -76,6 +77,10 @@ public class CurrentStudentsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
                 }else if(m.getId()==2){
 
+                    if(Utils.checkIfNetworkIsAvailable(context)) {
+                        Intent intent = new Intent(context, StudentModules.class);
+                        context.startActivity(intent);
+                    }
                     //your course and modules
 
                 }else if(m.getId()==3){
